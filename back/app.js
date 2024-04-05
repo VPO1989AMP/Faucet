@@ -24,10 +24,10 @@ app.get("/balance/:address", async(req, res) => {
 app.get("/faucet/:address", async(req,res)=>{
     const account = await web3.eth.accounts.decrypt(json,  "1234")
     const tx  = {
-        chaindId:8888,
+        chainId:8888,
         to: req.params.address,
         from: account.address,
-        gas: 30000,
+        gasPrice: 30000,
         value: web3.utils.toWei("0.1", 'ether')
     }
     const txSigned = await account.signTransaction(tx)
